@@ -1,4 +1,4 @@
-import Estatisticas from "./estatisticas.js";
+import Estatisticas from "./Estatisticas.js";
 import fetchData from "./fetchData.js";
 import normalizarTransacao from "./normalizarTransacao.js";
 async function handleData() {
@@ -6,13 +6,11 @@ async function handleData() {
     if (!data)
         return;
     const transacoes = data.map(normalizarTransacao);
-    console.log(transacoes);
     preencherTabela(transacoes);
     preencherEstatisticas(transacoes);
 }
 function preencherLista(lista, containerId) {
     const containerElement = document.getElementById(containerId);
-    console.log(containerElement);
     if (containerElement) {
         Object.keys(lista).forEach((key) => {
             containerElement.innerHTML += `<p> ${key}: ${lista[key]} </p>`;
@@ -29,6 +27,10 @@ function preencherEstatisticas(transacoes) {
             style: "currency",
             currency: "BRL",
         });
+    }
+    const diaElement = document.querySelector("#dia span");
+    if (diaElement) {
+        diaElement.innerText = data.melhorDia[0];
     }
 }
 function preencherTabela(transacoes) {

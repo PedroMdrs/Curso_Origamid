@@ -1,8 +1,12 @@
 import React, { ReactComponentElement, ReactNode } from "react";
 
-type ButtonType = React.ComponentProps<"button"> & { size: string };
+type Buttontype = {
+  children: ReactNode;
+  onClick?: () => void;
+  size?: "string";
+};
 
-const Button = ({ children, size, onClick, ...props }: ButtonType) => {
+const Button = ({ children, size, onClick, ...props }: Buttontype) => {
   return (
     <button onClick={onClick} style={{ fontSize: size }} {...props}>
       {children}

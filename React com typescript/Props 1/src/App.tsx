@@ -1,12 +1,12 @@
 import React from "react";
 import Button from "./Button";
-import Input from "./Input";
 
 function App() {
   const [count, setCount] = React.useState(0);
   return (
     <>
-      <Input type="date" marginBottom="1rem" label={"nome"}></Input>
+      <p>total: {count}</p>
+      <Button onClick={() => setCount(count + 1)}>Add</Button>
     </>
   );
 }

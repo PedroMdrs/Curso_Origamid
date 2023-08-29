@@ -3,7 +3,7 @@ import { useUser } from "./UserContext";
 
 const Header = () => {
   const context = useUser();
-  return <div>{context?.nome}</div>;
+  return <div>{context?.data?.nome}</div>;
 };
 
 export default Header;

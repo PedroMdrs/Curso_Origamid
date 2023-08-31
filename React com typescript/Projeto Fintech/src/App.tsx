@@ -20,8 +20,6 @@ const App = () => {
               <Route path="/vendas" element={<Vendas />} />
               <Route path="/vendas/:id" element={<Venda />} />
             </Routes>
-            <Resumo></Resumo>
-            <Vendas></Vendas>
           </main>
         </div>
       </DataContextProvider>

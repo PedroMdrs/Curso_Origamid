@@ -96,6 +96,12 @@ ul {
 .sidenav li:hover span {
   background: var(--color-3);
 }
+
+.daterange {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
 .resumo {
   font-size: 1.5rem;
   font-weight: 600;

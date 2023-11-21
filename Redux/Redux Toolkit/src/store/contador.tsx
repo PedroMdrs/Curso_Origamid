@@ -1,11 +1,18 @@
-function contador(state = 0, action) {
-  switch (action.type) {
-    case "incrementar":
-      return state + 1;
+import { createSlice } from "@reduxjs/toolkit";
 
-    default:
-      return state;
-  }
-}
-
-export default contador;
+const slice = createSlice({
+  name: "contador",
+  initialState: {
+    total: 0,
+  },
+  reducers: {
+    incrementar(state) {
+      state.total++;
+    },
+    reduzir(state) {
+      state.total--;
+    },
+  },
+});
+export const { incrementar, reduzir } = slice.actions;
+export default slice.reducer;

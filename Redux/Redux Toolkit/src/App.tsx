@@ -1,15 +1,39 @@
-import { useDispatch, useSelector } from "react-redux";
-import { incrementar, reduzir } from "./store/contador";
+import React from "react";
+import { useDispatch } from "react-redux";
+import login from "./store/login";
 
 const App = () => {
-  const { contador } = useSelector((state) => state);
+  const [username, setUsername] = React.useState("");
+  const [password, setPassword] = React.useState("");
   const dispatch = useDispatch();
-  console.log(contador);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    dispatch(login({ username, password }));
+  }
   return (
     <div>
-      <h1>total: {contador.total}</h1>
-      <button onClick={() => dispatch(incrementar())}>+</button>
-      <button onClick={() => dispatch(reduzir())}>-</button>
+      <form onSubmit={handleSubmit}>
+        <label style={{ display: "block" }} htmlFor="username">
+          Usuario
+        </label>
+        <input
+          id="username"
+          type="text"
+          value={username}
+          onChange={({ target }) => setUsername(target.value)}
+        />
+        <label style={{ display: "block" }} htmlFor="password">
+          Senha
+        </label>
+        <input
+          id="password"
+          type="password"
+          value={password}
+          onChange={({ target }) => setPassword(target.value)}
+        />
+        <button>Enviar</button>
+      </form>
     </div>
   );
 };

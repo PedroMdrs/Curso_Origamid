@@ -14,5 +14,6 @@ const slice = createSlice({
     },
   },
 });
+console.log(slice);
 export const { incrementar, reduzir } = slice.actions;
 export default slice.reducer;
